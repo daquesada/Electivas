@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -23,9 +22,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'ufn*hb8=)iq#1z_t#@n(70&%14yngqmlrr5v$tjhtndu^!ck@_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -36,7 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
+    'django.contrib.staticfiles',    
     'perfiles',
     'electivas',
     'secretaria',
@@ -123,6 +122,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+#STATIC_ROOT = os.peth.join(BASE_DIR,'static')
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
@@ -133,7 +133,7 @@ LOGIN_URL = '/accounts/login/'
 
 LOGIN_REDIRECT_URL = '/secretaria/'
 
-LOGOUT_REDIRECT_URL = '/perfiles/'
+LOGOUT_REDIRECT_URL = '/accounts/login/'
 
 # Activamos 'CookieStorage' que nos permite enviar los mensajes de respuesta al Crear, Eliminar y Actualizar un registro
 MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'
